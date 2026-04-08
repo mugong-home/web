@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雪山圣湖 No.001 | 作品详情</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+<style>
+.detail-swiper {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.detail-swiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo"><a href="index.html">PHOTO ALBUM</a></div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="works.html">全部作品</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section style="padding:120px 0 80px; background:#0a1a2f;">
+  <div class="container">
+    <div style="max-width:900px; margin:0 auto;">
+
+      <!-- 6图轮播 -->
+      <div class="swiper detail-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="images/001/001-1.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="images/001/001-2.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://picsum.photos/id/21/1200/800" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://picsum.photos/id/22/1200/800" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://picsum.photos/id/23/1200/800" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="https://picsum.photos/id/24/1200/800" alt="">
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+
+      <h2 style="font-size:32px; margin-bottom:15px;">雪山圣湖 No.001</h2>
+      <p style="color:#aaa;">分类：自然风光</p>
+      <p style="color:#ddd; line-height:1.8; margin-top:15px;">拍摄于高原湖畔，清晨光线柔和，雪山倒映湖面，视野开阔，层次分明。</p>
+      <div style="margin-top:30px;">
+        <a href="works.html" class="btn">← 返回作品列表</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="copyright"><p>©2026 摄影相册</p></div>
+  </div>
+</footer>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+const detailSwiper = new Swiper('.detail-swiper', {
+  loop: true,
+  speed: 600,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  navigation: {
+    nextEl: '.detail-swiper .swiper-button-next',
+    prevEl: '.detail-swiper .swiper-button-prev',
+  },
+});
+</script>
+</body>
+</html>

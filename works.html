@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全部作品 | 摄影相册</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* 筛选栏样式 */
+.filter-bar {
+  background: rgba(255,255,255,0.05);
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.filter-group label {
+  font-weight: 500;
+  color: #eee;
+  white-space: nowrap;
+}
+.filter-group select {
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #112a4a;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  outline: none;
+  cursor: pointer;
+}
+
+/* 🔥 筛选动画核心样式 */
+.works-grid > a {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.4s ease-out;
+}
+.works-grid > a.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo"><a href="index.html">PHOTO ALBUM</a></div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="works.html">全部作品</a></li>
+        <li><a href="index.html#contact">联系</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="works" style="padding-top:120px;">
+  <div class="container">
+    <div class="section-title">
+      <h2>全部作品清单</h2>
+      <p>All Photography Works</p>
+    </div>
+
+    <!-- 筛选栏（无按钮，实时筛选） -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>作品类别：</label>
+        <select id="filterType">
+          <option value="all">全部类别</option>
+          <option value="自然风光">自然风光</option>
+          <option value="城市风光">城市风光</option>
+          <option value="纪实摄影">纪实摄影</option>
+          <option value="天文摄影">天文摄影</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>拍摄作者：</label>
+        <select id="filterAuthor">
+          <option value="all">全部作者</option>
+          <option value="摄影师A">摄影师A</option>
+          <option value="摄影师B">摄影师B</option>
+          <option value="摄影师C">摄影师C</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="works-grid" id="worksGrid">
+      <a class="work-item" href="work-detail-1.html" data-type="自然风光" data-author="摄影师A">
+        <img src="images/001/001-1.jpg" alt="">
+        <div class="work-mask"><h4>作品 No.001</h4><p>自然风光｜摄影师A</p></div>
+      </a>
+      <a class="work-item" href="work-detail-2.html" data-type="自然风光" data-author="摄影师A">
+        <img src="https://picsum.photos/id/11/600/400" alt="">
+        <div class="work-mask"><h4>海岸日落 No.002</h4><p>自然风光｜摄影师A</p></div>
+      </a>
+      <a class="work-item" href="work-detail-3.html" data-type="城市风光" data-author="摄影师B">
+        <img src="https://picsum.photos/id/12/600/400" alt="">
+        <div class="work-mask"><h4>都市夜景 No.003</h4><p>城市风光｜摄影师B</p></div>
+      </a>
+      <a class="work-item" href="work-detail-4.html" data-type="纪实摄影" data-author="摄影师C">
+        <img src="https://picsum.photos/id/13/600/400" alt="">
+        <div class="work-mask"><h4>市井人文 No.004</h4><p>纪实摄影｜摄影师C</p></div>
+      </a>
+      <a class="work-item" href="work-detail-5.html" data-type="自然风光" data-author="摄影师B">
+        <img src="https://picsum.photos/id/14/600/400" alt="">
+        <div class="work-mask"><h4>森林晨光 No.005</h4><p>自然风光｜摄影师B</p></div>
+      </a>
+      <a class="work-item" href="work-detail-6.html" data-type="天文摄影" data-author="摄影师C">
+        <img src="https://picsum.photos/id/15/600/400" alt="">
+        <div class="work-mask"><h4>银河星空 No.006</h4><p>天文摄影｜摄影师C</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="copyright"><p>©2026 摄影相册</p></div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+const typeSelect = document.getElementById('filterType');
+const authorSelect = document.getElementById('filterAuthor');
+const items = document.querySelectorAll('#worksGrid .work-item');
+
+typeSelect.addEventListener('change', filterWorks);
+authorSelect.addEventListener('change', filterWorks);
+
+// 🔥 带动画的筛选逻辑
+function filterWorks() {
+  const type = typeSelect.value;
+  const author = authorSelect.value;
+
+  items.forEach((item, index) => {
+    const t = item.dataset.type;
+    const a = item.dataset.author;
+    const matchType = type === 'all' || t === type;
+    const matchAuthor = author === 'all' || a === author;
+
+    if (matchType && matchAuthor) {
+      // 🔥 错开时间显示，更流畅
+      setTimeout(() => {
+        item.classList.add('show');
+        item.style.display = 'block';
+      }, index * 80);
+    } else {
+      item.classList.remove('show');
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 400);
+    }
+  });
+}
+
+// 页面加载时默认显示全部
+window.addEventListener('load', () => {
+  items.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add('show');
+    }, index * 80);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>摄影相册 | 首页</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+<style>
+/* 叠放轮播效果（无圆角） */
+.swiper {
+  overflow: hidden;
+}
+.swiper-slide {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+}
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+.swiper-slide-prev,
+.swiper-slide-next {
+  opacity: 0.7;
+  transform: scale(0.92);
+  z-index: 5;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="logo"><a href="index.html">PHOTO ALBUM</a></div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="works.html">全部作品</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 叠放轮播 + 无圆角 + 可点击跳转详情 -->
+<section id="banner" class="banner">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <a href="work-detail-1.html">
+          <img src="images/001/001-1.jpg" alt="作品No.001">
+          <div class="slide-text">
+            <h2>作品 No.001</h2>
+            <p>自然 · 点击查看详情</p>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="work-detail-2.html">
+          <img src="images/002/002-1.jpg" alt="作品 No.002">
+          <div class="slide-text">
+            <h2>作品 No.002</h2>
+            <p>风光 · 点击查看详情</p>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="work-detail-3.html">
+          <img src="https://picsum.photos/id/12/1920/800" alt="都市夜景 No.003">
+          <div class="slide-text">
+            <h2>都市夜景 No.003</h2>
+            <p>城市风光 · 点击查看详情</p>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="work-detail-4.html">
+          <img src="https://picsum.photos/id/13/1920/800" alt="市井人文 No.004">
+          <div class="slide-text">
+            <h2>市井人文 No.004</h2>
+            <p>纪实摄影 · 点击查看详情</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-img"><img src="https://picsum.photos/id/1036/600/800" alt=""></div>
+      <div class="about-text">
+        <h3>关于我们</h3>
+        <p>专注自然风光、人文纪实、城市风光的专业摄影团队，用镜头捕捉世界每一处动人瞬间。</p>
+        <a href="works.html" class="btn">浏览全部作品</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="works" class="works">
+  <div class="container">
+    <div class="section-title">
+      <h2>精选作品</h2>
+      <p>自然风光 · 人文纪实 · 城市风光</p>
+    </div>
+    <div class="works-grid">
+      <a class="work-item" href="work-detail-1.html">
+        <img src="images/001/001-1.jpg" alt="">
+        <div class="work-mask"><h4>作品 No.001</h4><p>自然</p></div>
+      </a>
+      <a class="work-item" href="work-detail-2.html">
+        <img src="https://picsum.photos/id/11/600/400" alt="">
+        <div class="work-mask"><h4>海岸日落 No.002</h4><p>自然风光</p></div>
+      </a>
+      <a class="work-item" href="work-detail-3.html">
+        <img src="https://picsum.photos/id/12/600/400" alt="">
+        <div class="work-mask"><h4>都市夜景 No.003</h4><p>城市风光</p></div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="works.html" class="btn">查看全部作品</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo"><a href="index.html">PHOTO ALBUM</a><p>用镜头记录世界</p></div>
+      <div class="footer-link"><h4>导航</h4><ul><li><a href="index.html">首页</a></li><li><a href="works.html">全部作品</a></li></ul></div>
+      <div class="footer-contact"><h4>联系</h4><p>contact@photo.com</p></div>
+    </div>
+    <div class="copyright"><p>©2026 摄影相册</p></div>
+  </div>
+</footer>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
